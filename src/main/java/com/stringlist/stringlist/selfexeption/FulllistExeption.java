@@ -1,4 +1,4 @@
-package com.stringlist.stringlist.stringlist;
+package com.stringlist.stringlist.selfexeption;
 
 public class FulllistExeption extends RuntimeException {
     public FulllistExeption(String введенныйIndexНеСуществует) {

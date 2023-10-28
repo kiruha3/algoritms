@@ -1,6 +1,6 @@
 package com.stringlist.stringlist.stringlist;
 
-import com.stringlist.stringlist.selfexeption.IndexOfExeption;
+import com.stringlist.stringlist.selfexeption.FulllistExeption;
 import com.stringlist.stringlist.selfexeption.ItemofExeption;
 
 import java.util.Arrays;
@@ -22,36 +22,50 @@ public class StringListImpl implements StringList {
     @Override
     public String add(String item) {
         validateSize();
-        validateItem(item)
-        StringList[size++]=item;
-        if (StringList[StringList.length - 1] == null) {
-            StringList[0] = item;
-            return StringList[0];
-        } else {
-            String[] bufArray = new String[StringList.length + 1];
-            System.arraycopy(StringList, 0, bufArray, 0, bufArray.length - 1);
-            bufArray[StringList.length] = item;
-            StringList = new String[bufArray.length];
-            System.arraycopy(bufArray, 0, StringList, 0, StringList.length);
-            return StringList[StringList.length - 1];
-        }
+        validateItem(item);
+
+        StringList[size++] = item;
+        return item;
+//        if (StringList[StringList.length - 1] == null) {
+//            StringList[0] = item;
+//            return StringList[0];
+//        } else {
+//            String[] bufArray = new String[StringList.length + 1];
+//            System.arraycopy(StringList, 0, bufArray, 0, bufArray.length - 1);
+//            bufArray[StringList.length] = item;
+//            StringList = new String[bufArray.length];
+//            System.arraycopy(bufArray, 0, StringList, 0, StringList.length);
+//            return StringList[StringList.length - 1];
+//        }
     }
 
     @Override
     public String add(int index, String item) {
-        if (StringList.length - 1 < index) {
-            throw new IndexOfExeption("Введенный index вне диапазона");
-        } else {
-            String[] bufArray = new String[StringList.length + 1];
-            if (index >= 0) System.arraycopy(StringList, 0, bufArray, 0, index);
-            bufArray[index] = item;
-            if (bufArray.length - 1 - (index + 1) >= 0)
-                System.arraycopy(StringList, index + 1, bufArray, index + 1, bufArray.length - 1 - (index + 1));
-            StringList = new String[bufArray.length - 1];
-            System.arraycopy(bufArray, 0, StringList, 0, StringList.length);
-            return StringList[index];
+        validateSize();
+        validateItem(item);
+        validateIndex(index);
+        if (index == size) {
+            StringList[size++] = item;
+            return item;
         }
+        System.arraycopy(StringList, index, StringList, index, size - 1);
+        StringList[index] = item;
+        size++;
+        return item;
+        //        if (StringList.length - 1 < index) {
+//            throw new IndexOfExeption("Введенный index вне диапазона");
+//        } else {
+//            String[] bufArray = new String[StringList.length + 1];
+//            if (index >= 0) System.arraycopy(StringList, 0, bufArray, 0, index);
+//            bufArray[index] = item;
+//            if (bufArray.length - 1 - (index + 1) >= 0)
+//                System.arraycopy(StringList, index + 1, bufArray, index + 1, bufArray.length - 1 - (index + 1));
+//            StringList = new String[bufArray.length - 1];
+//            System.arraycopy(bufArray, 0, StringList, 0, StringList.length);
+//            return StringList[index];
+//        }
     }
+
 
     @Override
     public String set(int index, String item) {
@@ -63,65 +77,82 @@ public class StringListImpl implements StringList {
 
     @Override
     public String remove(String item) {
-        boolean catcher = false;
-        int counter = 0;
-        for (String s : StringList) {
-            if (Objects.equals(s, item)) {
-                catcher = true;
-                break;
-            }
-            counter++;
+        validateItem(item);
+        int index = indexOf(item);
+        if (index == -1) {
+            throw new ItemofExeption("нет такого");
         }
-        if (catcher) {
-
-            String[] bufArray = new String[StringList.length - 1];
-
-            if (counter >= 0) System.arraycopy(StringList, 0, bufArray, 0, counter);
-
-            if (bufArray.length - counter >= 0)
-                System.arraycopy(StringList, counter + 1, bufArray, counter, bufArray.length - counter);
-
-            if (bufArray.length == 0) StringList = new String[bufArray.length + 1];
-            else StringList = new String[bufArray.length];
-
-            for (int i = 0; i < StringList.length; i++) {
-                if (bufArray.length == 0) {
-                    break;
-                } else {
-                    StringList[i] = bufArray[i];
-                }
-            }
-            return item;
-        } else {
-            throw new ItemofExeption("Введенный item не существует");
+        if (index != size) {
+            System.arraycopy(StringList, index + 1, StringList, index, size - index - 1);
         }
+        size--;
+        return item;
+//        boolean catcher = false;
+//        int counter = 0;
+//        for (String s : StringList) {
+//            if (Objects.equals(s, item)) {
+//                catcher = true;
+//                break;
+//            }
+//            counter++;
+//        }
+//        if (catcher) {
+//
+//            String[] bufArray = new String[StringList.length - 1];
+//
+//            if (counter >= 0) System.arraycopy(StringList, 0, bufArray, 0, counter);
+//
+//            if (bufArray.length - counter >= 0)
+//                System.arraycopy(StringList, counter + 1, bufArray, counter, bufArray.length - counter);
+//
+//            if (bufArray.length == 0) StringList = new String[bufArray.length + 1];
+//            else StringList = new String[bufArray.length];
+//
+//            for (int i = 0; i < StringList.length; i++) {
+//                if (bufArray.length == 0) {
+//                    break;
+//                } else {
+//                    StringList[i] = bufArray[i];
+//                }
+//            }
+//            return item;
+//        } else {
+//            throw new ItemofExeption("Введенный item не существует");
+//        }
     }
 
     @Override
     public String remove(int index) {
-        if (StringList.length > index && index > -1) {
-            String[] bufArray = new String[StringList.length - 1];
-            String itemIndex = StringList[index];
-
-            if (index >= 0) System.arraycopy(StringList, 0, bufArray, 0, index);
-
-            if (bufArray.length - index >= 0)
-                System.arraycopy(StringList, index + 1, bufArray, index, bufArray.length - index);
-
-            if (bufArray.length == 0) StringList = new String[bufArray.length + 1];
-            else StringList = new String[bufArray.length];
-
-            for (int i = 0; i < StringList.length; i++) {
-                if (bufArray.length == 0) {
-                    break;
-                } else {
-                    StringList[i] = bufArray[i];
-                }
-            }
-            return itemIndex;
-        } else {
-            throw new ItemofExeption("Введенный index не существует");
+        validateIndex(index);
+        String item = StringList[index];
+        if (index != size) {
+            System.arraycopy(StringList, index + 1, StringList, index, size - (index + 1));
         }
+        size--;
+        return item;
+//        if (StringList.length > index && index > -1) {
+//            String[] bufArray = new String[StringList.length - 1];
+//            String itemIndex = StringList[index];
+//
+//            if (index >= 0) System.arraycopy(StringList, 0, bufArray, 0, index);
+//
+//            if (bufArray.length - index >= 0)
+//                System.arraycopy(StringList, index + 1, bufArray, index, bufArray.length - index);
+//
+//            if (bufArray.length == 0) StringList = new String[bufArray.length + 1];
+//            else StringList = new String[bufArray.length];
+//
+//            for (int i = 0; i < StringList.length; i++) {
+//                if (bufArray.length == 0) {
+//                    break;
+//                } else {
+//                    StringList[i] = bufArray[i];
+//                }
+//            }
+//            return itemIndex;
+//        } else {
+//            throw new ItemofExeption("Введенный index не существует");
+//        }
     }
 
     @Override
@@ -159,8 +190,7 @@ public class StringListImpl implements StringList {
 
     @Override
     public boolean equals(StringList otherList) {
-
-        return Arrays.equals(StringList, otherList.toArray());
+        return Arrays.equals(this.toArray(), otherList.toArray());
     }
 
     @Override
@@ -181,6 +211,7 @@ public class StringListImpl implements StringList {
     @Override
     public void clear() {
         size = 0;
+        StringList[0] = null;
     }
 
     @Override
@@ -204,7 +235,7 @@ public class StringListImpl implements StringList {
         }
     }
 
-    public void validateSize(String item) {
+    public void validateSize() {
         if (size == StringList.length) {
             throw new FulllistExeption("Введенный index не существует");
         }
