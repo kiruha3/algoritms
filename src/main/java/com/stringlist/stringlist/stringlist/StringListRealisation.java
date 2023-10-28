@@ -3,6 +3,9 @@ package com.stringlist.stringlist.stringlist;
 import com.stringlist.stringlist.selfexeption.IndexOfExeption;
 import com.stringlist.stringlist.selfexeption.ItemofExeption;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 public class StringListRealisation implements StringList {
     private String item;
     private Integer size = 1;
@@ -24,8 +27,6 @@ public class StringListRealisation implements StringList {
 
 //            return bufArray[bufArray.length - 1];
         }
-
-
     }
 
     @Override
@@ -59,7 +60,7 @@ public class StringListRealisation implements StringList {
         boolean catcher = false;
         int counter = 0;
         for (String s : StringList) {
-            if (s == item) {
+            if (Objects.equals(s, item)) {
                 catcher = true;
                 break;
             }
@@ -84,7 +85,6 @@ public class StringListRealisation implements StringList {
                     StringList[i] = bufArray[i];
                 }
             }
-
             return item;
         } else {
             throw new ItemofExeption("Введенный item не существует");
@@ -93,22 +93,63 @@ public class StringListRealisation implements StringList {
 
     @Override
     public String remove(int index) {
-        return null;
+        if (StringList.length > index) {
+            String[] bufArray = new String[StringList.length - 1];
+            String itemIndex = StringList[index];
+
+            if (index >= 0) System.arraycopy(StringList, 0, bufArray, 0, index);
+
+            if (bufArray.length - index >= 0)
+                System.arraycopy(StringList, index + 1, bufArray, index, bufArray.length - index);
+
+            if (bufArray.length == 0) StringList = new String[bufArray.length + 1];
+            else StringList = new String[bufArray.length];
+
+            for (int i = 0; i < StringList.length; i++) {
+                if (bufArray.length == 0) {
+                    break;
+                } else {
+                    StringList[i] = bufArray[i];
+                }
+            }
+            return itemIndex;
+        } else {
+            throw new ItemofExeption("Введенный index не существует");
+        }
     }
 
     @Override
     public boolean contains(String item) {
+        for (String s : StringList) {
+            if (Objects.equals(s, item)) {
+                return true;
+            }
+        }
         return false;
     }
 
     @Override
     public int indexOf(String item) {
-        return 0;
+        int counter = 0;
+        for (String s : StringList) {
+
+            if (Objects.equals(s, item)) {
+                return counter;
+            }
+            counter++;
+
+        }
+        return -1;
     }
 
     @Override
     public int lastIndexOf(String item) {
-        return 0;
+        for (int i = StringList.length - 1; i >= 0; i--) {
+            if (Objects.equals(StringList[i], item)) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     @Override
