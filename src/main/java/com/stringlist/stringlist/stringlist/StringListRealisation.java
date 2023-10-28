@@ -16,14 +16,10 @@ public class StringListRealisation implements StringList {
             return StringList[0];
         } else {
             String[] bufArray = new String[StringList.length + 1];
-            for (int i = 0; i < bufArray.length - 1; i++) {
-                bufArray[i] = StringList[i];
-            }
+            System.arraycopy(StringList, 0, bufArray, 0, bufArray.length - 1);
             bufArray[StringList.length] = item;
             StringList = new String[bufArray.length];
-            for (int i = 0; i < StringList.length; i++) {
-                StringList[i] = bufArray[i];
-            }
+            System.arraycopy(bufArray, 0, StringList, 0, StringList.length);
             return StringList[StringList.length - 1];
 
 //            return bufArray[bufArray.length - 1];
@@ -38,17 +34,12 @@ public class StringListRealisation implements StringList {
             throw new IndexOfExeption("Введенный index вне диапазона");
         } else {
             String[] bufArray = new String[StringList.length + 1];
-            for (int i = 0; i < index; i++) {
-                bufArray[i] = StringList[i];
-            }
+            if (index >= 0) System.arraycopy(StringList, 0, bufArray, 0, index);
             bufArray[index] = item;
-            for (int i = index + 1; i < bufArray.length - 1; i++) {
-                bufArray[i] = StringList[i];
-            }
+            if (bufArray.length - 1 - (index + 1) >= 0)
+                System.arraycopy(StringList, index + 1, bufArray, index + 1, bufArray.length - 1 - (index + 1));
             StringList = new String[bufArray.length - 1];
-            for (int i = 0; i < StringList.length; i++) {
-                StringList[i] = bufArray[i];
-            }
+            System.arraycopy(bufArray, 0, StringList, 0, StringList.length);
             return StringList[index];
         }
     }
@@ -78,18 +69,13 @@ public class StringListRealisation implements StringList {
 
             String[] bufArray = new String[StringList.length - 1];
 
-            for (int i = 0; i < counter; i++) {
-                bufArray[i] = StringList[i];
-            }
+            if (counter >= 0) System.arraycopy(StringList, 0, bufArray, 0, counter);
 
-            for (int i = counter; i < bufArray.length; i++) {
-                bufArray[i] = StringList[i + 1];
-            }
+            if (bufArray.length - counter >= 0)
+                System.arraycopy(StringList, counter + 1, bufArray, counter, bufArray.length - counter);
 
-            if (bufArray.length == 0)
-                StringList = new String[bufArray.length + 1];
-            else
-                StringList = new String[bufArray.length];
+            if (bufArray.length == 0) StringList = new String[bufArray.length + 1];
+            else StringList = new String[bufArray.length];
 
             for (int i = 0; i < StringList.length; i++) {
                 if (bufArray.length == 0) {
