@@ -6,14 +6,24 @@ import com.stringlist.stringlist.selfexeption.ItemofExeption;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class StringListRealisation implements StringList {
-    private String item;
-    private Integer size = 1;
-    private String[] StringList = new String[size];
+public class StringListImpl implements StringList {
+    private String[] StringList;
+    private int size;
+
+    public StringListImpl() {
+        this.StringList = new String[size];
+    }
+
+    public StringListImpl(int size) {
+        StringList = new String[10];
+    }
 
 
     @Override
     public String add(String item) {
+        validateSize();
+        validateItem(item)
+        StringList[size++]=item;
         if (StringList[StringList.length - 1] == null) {
             StringList[0] = item;
             return StringList[0];
@@ -24,8 +34,6 @@ public class StringListRealisation implements StringList {
             StringList = new String[bufArray.length];
             System.arraycopy(bufArray, 0, StringList, 0, StringList.length);
             return StringList[StringList.length - 1];
-
-//            return bufArray[bufArray.length - 1];
         }
     }
 
@@ -47,12 +55,10 @@ public class StringListRealisation implements StringList {
 
     @Override
     public String set(int index, String item) {
-        if (StringList.length - 1 < index) {
-            throw new IndexOfExeption("Введенный index вне диапазона");
-        } else {
-            StringList[index] = item;
-            return StringList[index];
-        }
+        validateIndex(index);
+        validateItem(item);
+        StringList[index] = item;
+        return item;
     }
 
     @Override
@@ -93,7 +99,7 @@ public class StringListRealisation implements StringList {
 
     @Override
     public String remove(int index) {
-        if (StringList.length > index) {
+        if (StringList.length > index && index > -1) {
             String[] bufArray = new String[StringList.length - 1];
             String itemIndex = StringList[index];
 
@@ -120,24 +126,17 @@ public class StringListRealisation implements StringList {
 
     @Override
     public boolean contains(String item) {
-        for (String s : StringList) {
-            if (Objects.equals(s, item)) {
-                return true;
-            }
-        }
-        return false;
+        return indexOf(item) != -1;
     }
 
     @Override
     public int indexOf(String item) {
         int counter = 0;
         for (String s : StringList) {
-
             if (Objects.equals(s, item)) {
                 return counter;
             }
             counter++;
-
         }
         return -1;
     }
@@ -154,56 +153,39 @@ public class StringListRealisation implements StringList {
 
     @Override
     public String get(int index) {
-        return null;
+        validateIndex(index);
+        return StringList[index];
     }
 
     @Override
     public boolean equals(StringList otherList) {
-        return false;
+
+        return Arrays.equals(StringList, otherList.toArray());
     }
 
     @Override
     public int size() {
-        return StringList.length;
+        return size;
     }
 
     @Override
     public boolean isEmpty() {
-        return false;
+        for (int i = 0; i < StringList.length; i++) {
+            if (StringList[i] != null) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
     public void clear() {
-
+        size = 0;
     }
 
     @Override
     public String[] toArray() {
-        return new String[0];
-    }
-
-    public String getItem() {
-        return item;
-    }
-
-    public void setItem(String item) {
-        this.item = item;
-    }
-
-    public int getSize() {
-        return size;
-    }
-
-    public void setSize(int size) {
-        this.size = size;
-    }
-
-    public String[] getStringList() {
-        return StringList;
-    }
-
-    public void setStringList(String[] stringList) {
-        StringList = stringList;
+        return Arrays.copyOf(StringList, size);
     }
 
     @Override
@@ -214,5 +196,23 @@ public class StringListRealisation implements StringList {
             stroka += s;
         }
         return stroka;
+    }
+
+    public void validateItem(String item) {
+        if (item == null) {
+            throw new ItemofExeption("Введенный item не существует");
+        }
+    }
+
+    public void validateSize(String item) {
+        if (size == StringList.length) {
+            throw new FulllistExeption("Введенный index не существует");
+        }
+    }
+
+    public void validateIndex(int index) {
+        if (index < 0 || index > size) {
+            throw new ItemofExeption("Введенный index не существует");
+        }
     }
 }
