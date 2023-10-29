@@ -31,28 +31,28 @@ class StringListImplTest {
 
     @Test
     void addItem_FulllistExeption() {
-//        //Подготовка входных данных
-//        int size = 1;
-//        String[] arrayTest = new String[1];
-//        String item = "тест";
-//        arrayTest[0] = item;
-//
-//        String expected = "good";
-//        if (arrayTest[size-1] == null) {
-//            arrayTest[1] = item;
-//        } else {
-//            expected = "Введенный index вне диапазона";
-//        }
-//        //Подготовка ожидаемого результата
-//
-//        //Начало теста
-//        StringList stringList = new StringListImpl(1);
-//        stringList.add(item);
-//        Exception exception = assertThrows(
-//                FulllistExeption.class,
-//                () -> stringList.add(item)
-//        );
-//        assertEquals(expected, exception.getMessage());
+    //        //Подготовка входных данных
+    //        int size = 1;
+    //        String[] arrayTest = new String[1];
+    //        String item = "тест";
+    //        arrayTest[0] = item;
+    //
+    //        String expected = "good";
+    //        if (arrayTest[size-1] == null) {
+    //            arrayTest[1] = item;
+    //        } else {
+    //            expected = "Введенный index вне диапазона";
+    //        }
+    //        //Подготовка ожидаемого результата
+    //
+    //        //Начало теста
+    //        StringList stringList = new StringListImpl(1);
+    //        stringList.add(item);
+    //        Exception exception = assertThrows(
+    //                FulllistExeption.class,
+    //                () -> stringList.add(item)
+    //        );
+    //        assertEquals(expected, exception.getMessage());
     }
 
     @Test
