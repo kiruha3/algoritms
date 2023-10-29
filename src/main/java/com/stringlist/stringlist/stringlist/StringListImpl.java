@@ -15,7 +15,7 @@ public class StringListImpl implements StringList {
     }
 
     public StringListImpl(int size) {
-        StringList = new String[10];
+        StringList = new String[size];
     }
 
 
@@ -48,7 +48,10 @@ public class StringListImpl implements StringList {
             StringList[size++] = item;
             return item;
         }
-        System.arraycopy(StringList, index, StringList, index, size - 1);
+        for (int i = index + 1; i < StringList.length; i++) {
+            StringList[i] = StringList[i - 1];
+        }
+//        System.arraycopy(StringList, index, StringList, index, size - 1);
         StringList[index] = item;
         size++;
         return item;
