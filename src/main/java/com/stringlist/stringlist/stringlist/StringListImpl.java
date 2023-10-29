@@ -48,7 +48,7 @@ public class StringListImpl implements StringList {
             StringList[size++] = item;
             return item;
         }
-        for (int i = index + 1; i < StringList.length; i++) {
+        for (int i = StringList.length - 1; i > index; i--) {
             StringList[i] = StringList[i - 1];
         }
 //        System.arraycopy(StringList, index, StringList, index, size - 1);
@@ -214,7 +214,8 @@ public class StringListImpl implements StringList {
     @Override
     public void clear() {
         size = 0;
-        StringList[0] = null;
+        StringList[1] = null;
+
     }
 
     @Override
@@ -240,7 +241,7 @@ public class StringListImpl implements StringList {
 
     public void validateSize() {
         if (size == StringList.length) {
-            throw new FulllistExeption("Введенный index не существует");
+            throw new FulllistExeption("Введенный index вне диапазона");
         }
     }
 

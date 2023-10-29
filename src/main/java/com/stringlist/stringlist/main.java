@@ -9,9 +9,9 @@ public class main {
         StringList stringlist = new StringListImpl(5);
         stringlist.add("5");
         stringlist.add("6!");
-        System.out.println(stringlist.get(0));
+//        System.out.println(stringlist.get(0));
         stringlist.add("10!");
-//        System.out.println(stringlist.size());
+        System.out.println(stringlist.size());
 //
 ////        System.out.println(stringlist.size());
 //        stringlist.add(2, "112!");
