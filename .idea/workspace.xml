@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="73471c2c-1169-40bf-a6ad-c2d86a999aac" name="Changes" comment="" />
+    <list default="true" id="73471c2c-1169-40bf-a6ad-c2d86a999aac" name="Changes" comment="тесты, пока без отработки ошибок">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/stringlist/stringlist/integerlist/IntegerList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/stringlist/stringlist/integerlist/IntegerListImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/stringlist/stringlist/mainInt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/stringlist/stringlist/stringlist/StringListImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/stringlist/stringlist/stringlist/StringListImplTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,6 +24,14 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="algoritms_part1" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -29,19 +43,35 @@
     </option>
   </component>
   <component name="ProjectId" id="2XOEwCuWbZA0N081bpuMF0UTd6a" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/kirill/IdeaProjects/stringlist&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="Application.main">
-    <configuration name="StringlistApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.stringlist.stringlist.StringlistApplication" />
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.stringlist.stringlist.stringlist" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.stringlist.stringlist" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.stringlist.stringlist.stringlist" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.mainInt">
+    <configuration name="mainInt" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.stringlist.stringlist.mainInt" />
       <module name="stringlist" />
       <extension name="coverage">
         <pattern>
@@ -53,8 +83,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.stringlist.stringlist.main" />
+    <configuration name="StringListImplTest.addItem_FulllistExeption" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="stringlist" />
       <extension name="coverage">
         <pattern>
@@ -62,14 +91,69 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.stringlist.stringlist.stringlist" />
+      <option name="MAIN_CLASS_NAME" value="com.stringlist.stringlist.stringlist.StringListImplTest" />
+      <option name="METHOD_NAME" value="addItem_FulllistExeption" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StringListImplTest.clear" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="stringlist" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.stringlist.stringlist.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.stringlist.stringlist.stringlist" />
+      <option name="MAIN_CLASS_NAME" value="com.stringlist.stringlist.stringlist.StringListImplTest" />
+      <option name="METHOD_NAME" value="clear" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StringListImplTest.get" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="stringlist" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.stringlist.stringlist.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.stringlist.stringlist.stringlist" />
+      <option name="MAIN_CLASS_NAME" value="com.stringlist.stringlist.stringlist.StringListImplTest" />
+      <option name="METHOD_NAME" value="get" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StringListImplTest.toArray" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="stringlist" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.stringlist.stringlist.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.stringlist.stringlist.stringlist" />
+      <option name="MAIN_CLASS_NAME" value="com.stringlist.stringlist.stringlist.StringListImplTest" />
+      <option name="METHOD_NAME" value="toArray" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.main" />
-        <item itemvalue="Application.StringlistApplication" />
+        <item itemvalue="Application.mainInt" />
+        <item itemvalue="JUnit.StringListImplTest.addItem_FulllistExeption" />
+        <item itemvalue="JUnit.StringListImplTest.get" />
+        <item itemvalue="JUnit.StringListImplTest.toArray" />
+        <item itemvalue="JUnit.StringListImplTest.clear" />
       </list>
     </recent_temporary>
   </component>
@@ -82,21 +166,140 @@
       <option name="presentableId" value="Default" />
       <updated>1698491963931</updated>
     </task>
+    <task id="LOCAL-00001" summary="first commit maven create">
+      <option name="closed" value="true" />
+      <created>1698509092862</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1698509092862</updated>
+    </task>
+    <task id="LOCAL-00002" summary="exeption create">
+      <option name="closed" value="true" />
+      <created>1698509152694</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1698509152694</updated>
+    </task>
+    <task id="LOCAL-00003" summary="StringList create and StrunglListRealisation">
+      <option name="closed" value="true" />
+      <created>1698509254361</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1698509254361</updated>
+    </task>
+    <task id="LOCAL-00004" summary="crate main for test">
+      <option name="closed" value="true" />
+      <created>1698509293751</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1698509293751</updated>
+    </task>
+    <task id="LOCAL-00005" summary="rearrage code">
+      <option name="closed" value="true" />
+      <created>1698509419260</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1698509419260</updated>
+    </task>
+    <task id="LOCAL-00006" summary="indexOf and LastIndexof">
+      <option name="closed" value="true" />
+      <created>1698513049662</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1698513049662</updated>
+    </task>
+    <task id="LOCAL-00007" summary="indexOf and LastIndexof">
+      <option name="closed" value="true" />
+      <created>1698521047911</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1698521047911</updated>
+    </task>
+    <task id="LOCAL-00008" summary="тест для add">
+      <option name="closed" value="true" />
+      <created>1698572608023</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1698572608023</updated>
+    </task>
+    <task id="LOCAL-00009" summary="тесты, пока без отработки ошибок">
+      <option name="closed" value="true" />
+      <created>1698580519049</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1698580519049</updated>
+    </task>
+    <task id="LOCAL-00010" summary="тесты, пока без отработки ошибок">
+      <option name="closed" value="true" />
+      <created>1698580540930</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1698580540930</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="first commit maven create" />
+    <MESSAGE value="exeption create" />
+    <MESSAGE value="StringList create and StrunglListRealisation" />
+    <MESSAGE value="crate main for test" />
+    <MESSAGE value="rearrage code" />
+    <MESSAGE value="indexOf and LastIndexof" />
+    <MESSAGE value="тест для add" />
+    <MESSAGE value="тесты, пока без отработки ошибок" />
+    <option name="LAST_COMMIT_MESSAGE" value="тесты, пока без отработки ошибок" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/stringlist/stringlist/main.java</url>
-          <line>23</line>
-          <option name="timeStamp" value="63" />
+          <url>file://$PROJECT_DIR$/src/test/java/com/stringlist/stringlist/stringlist/StringListImplTest.java</url>
+          <line>384</line>
+          <option name="timeStamp" value="103" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/stringlist/stringlist/integerlist/IntegerListImpl.java</url>
+          <line>189</line>
+          <option name="timeStamp" value="113" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/stringlist/stringlist/integerlist/IntegerListImpl.java</url>
+          <line>177</line>
+          <option name="timeStamp" value="114" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="java.lang.Integer" memberName="value" />
+        <PinnedItemInfo parentTag="com.stringlist.stringlist.stringlist.StringListRealisation" memberName="item" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/stringlist$main.ic" NAME="main Coverage Results" MODIFIED="1698508159782" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/stringlist$main.ic" NAME="main Coverage Results" MODIFIED="1698523767599" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.stringlist.stringlist.*</FILTER>
     </SUITE>
   </component>
