@@ -13,4 +13,14 @@ public class Generate {
         }
         return -1;
     }
+    public int indexOfInt(Integer item, Integer[] StringList) {
+        int counter = 0;
+        for (Integer s : StringList) {
+            if (Objects.equals(s, item)) {
+                return counter;
+            }
+            counter++;
+        }
+        return -1;
+    }
 }

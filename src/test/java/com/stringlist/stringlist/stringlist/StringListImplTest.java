@@ -378,10 +378,9 @@ class StringListImplTest {
         stringList.add("тест2");
         stringList.add("тест3");
         stringList.add("тест4");
-        String[] expectedtoArray = Arrays.copyOf(arrayTest, size);
+        String expectedtoArray = Arrays.toString(Arrays.copyOf(arrayTest, size));
         //Начало теста
-        stringList.clear();
-        String[] actualtoArray = stringList.toArray();
+        String actualtoArray = Arrays.toString(stringList.toArray());
         assertEquals(expectedtoArray, actualtoArray);
     }
 }
