@@ -4,14 +4,14 @@ import com.stringlist.stringlist.selfexeption.FulllistExeption;
 import com.stringlist.stringlist.selfexeption.ItemofExeption;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Objects;
 
 public class IntegerListImpl implements IntegerList {
-    private Integer[] IntegerList;
+    protected Integer[] IntegerList;
     private int size;
 
     public IntegerListImpl() {
-        Integer[] IntegerList = this.IntegerList;
         this.IntegerList = new Integer[size];
     }
 
@@ -86,14 +86,19 @@ public class IntegerListImpl implements IntegerList {
 
     @Override
     public int indexOf(Integer item) {
-        int counter = 0;
-        for (Integer s : IntegerList) {
-            if (Objects.equals(s, item)) {
-                return counter;
-            }
-            counter++;
+//        int counter = 0;
+//        for (Integer s : IntegerList) {
+//            if (Objects.equals(s, item)) {
+//                return counter;
+//            }
+//            counter++;
+//        }
+//        return -1;
+        if (item == null) {
+            throw new NullPointerException("Параметр item не должен равняться null");
         }
-        return -1;
+
+        return Collections.binarySearch(Arrays.asList(IntegerList), item);
     }
 
     @Override
@@ -112,11 +117,6 @@ public class IntegerListImpl implements IntegerList {
         return IntegerList[index];
     }
 
-    @Override
-    public boolean equals(IntegerList otherList) {
-        return Arrays.equals(this.toArray(), otherList.toArray());
-    }
-
 //    @Override
 //    public Integer toString() {
 //        String stroka = "";
@@ -126,6 +126,11 @@ public class IntegerListImpl implements IntegerList {
 //        }
 //        return stroka;
 //    }
+
+    @Override
+    public boolean equals(IntegerList otherList) {
+        return Arrays.equals(this.toArray(), otherList.toArray());
+    }
 
     @Override
     public int size() {
@@ -172,66 +177,20 @@ public class IntegerListImpl implements IntegerList {
         }
     }
 
-    private Integer[] swapElements(Integer indexA, Integer indexB) {
-        Integer[] arr = new Integer[size];
-//        arr = toArray();
-        System.arraycopy(toArray(), 0, arr, 0, toArray().length);
-        int tmp = arr[indexA];
-        arr[indexA] = arr[indexB];
-        arr[indexB] = tmp;
-        return arr;
-    }
+    void compress() {
+        for (int i = 0; i < IntegerList.length; i++) {
+            if (IntegerList[i] != null) {
+                continue;
+            }
 
-    @Override
-    public Integer[] sortBubble() {
-        Integer[] arr = new Integer[size];
-        System.arraycopy(toArray(), 0, arr, 0, toArray().length);
-        for (int i = 0; i < arr.length - 1; i++) {
-            for (int j = 0; j < arr.length - 1; j++) {
-                if (arr[j] > arr[j + 1]) {
-                    arr = swapElements(j, j + 1);
-                    System.out.println(Arrays.toString(Arrays.copyOf(arr, arr.length)));
+            for (int j = i; j < IntegerList.length; j++) {
+                if (IntegerList[j] != null) {
+                    IntegerList[i] = IntegerList[j];
+                    IntegerList[j] = null;
+                    break;
                 }
             }
         }
-        clear();
-        for (Integer i : arr) {
-            add(i);
-        }
-        return toArray();
-    }
-
-    @Override
-    public Integer[] sortSelection() {
-        Integer[] arr = new Integer[size];
-        System.arraycopy(toArray(), 0, arr, 0, toArray().length);
-        for (int i = 0; i < arr.length - 1; i++) {
-            int minElementIndex = i;
-            for (int j = i + 1; j < arr.length; j++) {
-                if (arr[j] < arr[minElementIndex]) {
-                    minElementIndex = j;
-                }
-            }
-            arr = swapElements(i, minElementIndex);
-            System.out.println(Arrays.toString(Arrays.copyOf(arr, arr.length)));
-        }
-        return toArray();
-    }
-
-    @Override
-    public Integer[] sortInsertion() {
-        Integer[] arr = new Integer[size];
-        arr = toArray();
-        for (int i = 1; i < arr.length; i++) {
-            int temp = arr[i];
-            int j = i;
-            while (j > 0 && arr[j - 1] >= temp) {
-                arr[j] = arr[j - 1];
-                j--;
-            }
-            arr[j] = temp;
-        }
-        return toArray();
     }
 
 

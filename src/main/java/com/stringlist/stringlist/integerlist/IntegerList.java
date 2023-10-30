@@ -77,8 +77,8 @@ public interface IntegerList {
     // из строк в списке
     // и вернуть его.
     Integer[] toArray();
-    Integer[] sortBubble();
-    Integer[] sortSelection();
-    Integer[] sortInsertion();
+//    Integer[] sortBubble();
+//    Integer[] sortSelection();
+//    Integer[] sortInsertion();
 
 }
