@@ -22,6 +22,7 @@ public class IntegerListImpl implements IntegerList {
 
     @Override
     public Integer add(Integer item) {
+        grow();
         validateSize();
         validateItem(item);
 
@@ -193,5 +194,10 @@ public class IntegerListImpl implements IntegerList {
         }
     }
 
-
+    private Integer[] grow() {
+        if (get(size() - 2) != 0) {
+            IntegerList = new Integer[size * (size / 2)];
+        }
+        return IntegerList = toArray();
+    }
 }

@@ -305,6 +305,7 @@ class IntegerListImplTest {
 
     @Test
     void toArray() {
+        //Подготовка входных данных
         int size = 4;
         Integer[] arrayTest = new Integer[size];
         IntegerList integerList = new IntegerListImpl(size);
@@ -312,7 +313,7 @@ class IntegerListImplTest {
         arrayTest[1] = 2;
         arrayTest[2] = 3;
         arrayTest[3] = 4;
-
+        //Подготовка ожидаемого результата
         integerList.add(1);
         integerList.add(2);
         integerList.add(3);
