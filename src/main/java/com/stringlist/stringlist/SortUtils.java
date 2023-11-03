@@ -44,31 +44,26 @@ public class SortUtils {
         array[indexB] = buffer;
     }
 
-    public static Integer[] SortedArrayRecurse(Integer[] array, int i, int j) {
+    public static int[] SortedArrayRecurse(int[] array, int i, int j) {
         if (j != array.length) {
             if ((i + 1) != array.length) {
                 if (array[i] > array[i + 1]) {
-                    array = swapElements(array, i, i + 1);
+                    swapElements(array, i, i + 1);
                 }
-            }
-            if ((i + 1) == array.length) {
-                i = 0;
-                return SortedArrayRecurse(array, i, j);
-            } else {
                 i++;
+                if (i == array.length - 1) j++;
+            } else {
+                i = 0;
             }
-            if (i == array.length - 1) j++;
-//            System.out.println(Arrays.toString(array));
             return SortedArrayRecurse(array, i, j);
         } else {
             return array;
         }
     }
 
-    private static Integer[] swapElements(Integer[] array, int indexA, int indexB) {
+    private static void swapElements(int[] array, int indexA, int indexB) {
         int buffer = array[indexA];
         array[indexA] = array[indexB];
         array[indexB] = buffer;
-        return array;
     }
 }
