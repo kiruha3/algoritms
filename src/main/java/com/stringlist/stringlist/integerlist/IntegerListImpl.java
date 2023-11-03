@@ -12,7 +12,7 @@ public class IntegerListImpl implements IntegerList {
     private int size;
 
     public IntegerListImpl() {
-        this.IntegerList = new Integer[size];
+        IntegerList = new Integer[4];
     }
 
     public IntegerListImpl(int size) {

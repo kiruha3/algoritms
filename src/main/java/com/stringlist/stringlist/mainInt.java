@@ -8,15 +8,19 @@ import java.util.Arrays;
 
 public class mainInt {
     public static void main(String[] args) {
-        IntegerList integerList = new SortedIntegerListImpl(5);
+        IntegerList integerList = new SortedIntegerListImpl(4);
         integerList.add(7);
         integerList.add(6);
         integerList.add(10);
         integerList.add(103);
         integerList.add(12);
+        integerList.add(12);   integerList.add(10);
+        integerList.add(103);
+        integerList.add(12);
         integerList.add(12);
         System.out.println(integerList.size());
         System.out.println(integerList.get(4));
+        System.out.println(integerList.get(integerList.size()-1));
 
 //        findFastedSortMethod();
     }
