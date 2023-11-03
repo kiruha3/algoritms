@@ -43,6 +43,7 @@ public class SortUtils {
         array[indexA] = array[indexB];
         array[indexB] = buffer;
     }
+
     public static Integer[] SortedArrayRecurse(Integer[] array, int i, int j) {
         if (j != array.length) {
             if ((i + 1) != array.length) {
