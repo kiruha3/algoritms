@@ -44,16 +44,16 @@ public class SortUtils {
         array[indexB] = buffer;
     }
 
-    public static int[] SortedArrayRecurse(int[] array, int i, int j) {
+    public static Integer[] SortedArrayRecurse(Integer[] array, int i, int j) {
         if (j != array.length) {
             if ((i + 1) != array.length) {
                 if (array[i] > array[i + 1]) {
                     swapElements(array, i, i + 1);
-                    j++;
-                    i = 0;
-                    return SortedArrayRecurse(array, i, j);
                 }
                 i++;
+                if (i == array.length - 1) j++;
+            } else {
+                i = 0;
             }
             return SortedArrayRecurse(array, i, j);
         } else {
@@ -61,8 +61,20 @@ public class SortUtils {
         }
     }
 
-    private static void swapElements(int[] array, int indexA, int indexB) {
-        int buffer = array[indexA];
+    public static Integer[] bubbleSort21(Integer[] array, Integer j) {
+        for (int i = 0; i < j - 1; i++) {
+            if (array[i] > array[i + 1]) {
+                swapElements(array, i, i + 1);
+            }
+        }
+        if (j - 1 > 1) {
+            bubbleSort21(array, j - 1);
+        }
+        return array;
+    }
+
+    private static void swapElements(Integer[] array, int indexA, int indexB) {
+        Integer buffer = array[indexA];
         array[indexA] = array[indexB];
         array[indexB] = buffer;
     }
