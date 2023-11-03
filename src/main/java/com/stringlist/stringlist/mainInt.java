@@ -1,10 +1,11 @@
 package com.stringlist.stringlist;
 
 import com.stringlist.stringlist.integerlist.IntegerList;
-import com.stringlist.stringlist.integerlist.IntegerListImpl;
 import com.stringlist.stringlist.integerlist.SortedIntegerListImpl;
 
 import java.util.Arrays;
+
+import static com.stringlist.stringlist.SortUtils.SortedArrayRecurse;
 
 public class mainInt {
     public static void main(String[] args) {
@@ -14,16 +15,21 @@ public class mainInt {
         integerList.add(10);
         integerList.add(103);
         integerList.add(12);
-        integerList.add(12);   integerList.add(10);
+        integerList.add(12);
+        integerList.add(10);
         integerList.add(103);
         integerList.add(12);
         integerList.add(12);
         System.out.println(integerList.size());
         System.out.println(integerList.get(4));
-        System.out.println(integerList.get(integerList.size()-1));
+        System.out.println(integerList.get(integerList.size() - 1));
 
-//        findFastedSortMethod();
+        findFastedSortMethod();
+
+
+
     }
+
     private static void findFastedSortMethod() {
         IntegerList integerList = new SortedIntegerListImpl(5);
         integerList.add(7);
@@ -59,4 +65,6 @@ public class mainInt {
         System.out.println(Arrays.toString(SortUtils.insertionSort(Arrays.copyOf(integerList3.toArray(), integerList3.size()))));
         System.out.println(System.currentTimeMillis() - start + " ms.");
     }
+
+
 }
