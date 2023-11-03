@@ -15,9 +15,9 @@ public class algoritm3 {
             for (int i11 = 0; i11 < sortArrayRecurse.length; i11++) {
                 sortArrayRecurse[i11] = rand.nextInt(100);
             }
-
+        System.out.println(Arrays.toString(Arrays.stream(sortArrayRecurse).toArray()));
             System.out.println(Arrays.toString(SortedArrayRecurse(sortArrayRecurse, i, j)));
-            System.out.println(Arrays.toString(Arrays.stream(sortArrayRecurse).toArray()));
+
             System.out.println("-");
 
     }
