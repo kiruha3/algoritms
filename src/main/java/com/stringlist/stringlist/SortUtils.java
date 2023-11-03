@@ -49,11 +49,11 @@ public class SortUtils {
             if ((i + 1) != array.length) {
                 if (array[i] > array[i + 1]) {
                     swapElements(array, i, i + 1);
+                    j++;
+                    i = 0;
+                    return SortedArrayRecurse(array, i, j);
                 }
                 i++;
-                if (i == array.length - 1) j++;
-            } else {
-                i = 0;
             }
             return SortedArrayRecurse(array, i, j);
         } else {
