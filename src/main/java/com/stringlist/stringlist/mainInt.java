@@ -14,7 +14,9 @@ public class mainInt {
         integerList.add(10);
         integerList.add(103);
         integerList.add(12);
+        integerList.add(12);
         System.out.println(integerList.size());
+        System.out.println(integerList.get(4));
 
 //        findFastedSortMethod();
     }

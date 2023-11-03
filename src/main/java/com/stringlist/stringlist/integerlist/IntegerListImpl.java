@@ -25,7 +25,6 @@ public class IntegerListImpl implements IntegerList {
         grow();
         validateSize();
         validateItem(item);
-
         IntegerList[size++] = item;
         return item;
     }
@@ -195,9 +194,22 @@ public class IntegerListImpl implements IntegerList {
     }
 
     private Integer[] grow() {
-        if (get(size() - 2) != 0) {
-            IntegerList = new Integer[size * (size / 2)];
+        Integer[] buffArray = new Integer[IntegerList.length];
+        if (IntegerList.length == size()) {
+            int counter = 0;
+            for (Integer i : IntegerList) {
+                buffArray[counter] = i;
+                counter++;
+            }
+            int sizeGrow = size() * (size() / 2);
+            IntegerList = new Integer[sizeGrow];
+            counter = 0;
+            for (Integer i : buffArray) {
+                set(counter, i);
+                counter++;
+                if (counter == buffArray.length) return IntegerList;
+            }
         }
-        return IntegerList = toArray();
+        return IntegerList;
     }
 }
